@@ -244,6 +244,8 @@ const Footer: React.FC = () => {
             </a>
             <span className="block text-xs text-brand-forest/50 mt-1 font-semibold">
               © {new Date().getFullYear()} Nova Kids Playschool. All rights reserved.
+              <span className="mx-2">•</span>
+              Powered by <a href="https://axoneura.in" target="_blank" rel="noopener noreferrer" className="underline hover:text-brand-coral transition-colors">axoneura</a>
             </span>
           </div>
         </div>

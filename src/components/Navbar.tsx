@@ -17,13 +17,19 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const leftLinks = [
+  const leftLinks: { label: string; href: string; target?: string; rel?: string }[] = [
     { label: 'Programs', href: '#programs' },
     { label: 'Safety', href: '#safety' },
   ];
 
-  const rightLinks = [
+  const rightLinks: { label: string; href: string; target?: string; rel?: string }[] = [
     { label: 'Admissions', href: '#admissions' },
+    { 
+      label: 'Parent App', 
+      href: 'https://play.google.com/store/apps/details?id=com.axoneura.eduopus.parent&pcampaignid=web_share',
+      target: '_blank',
+      rel: 'noopener noreferrer'
+    },
     { label: 'Contact', href: '#contact' },
   ];
 
@@ -52,7 +58,6 @@ const Navbar: React.FC = () => {
       }`}>
         <div className="flex items-center justify-between">
           
-          {/* Desktop Left Links */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {leftLinks.map((link) => (
               <a
@@ -75,12 +80,13 @@ const Navbar: React.FC = () => {
             <Logo />
           </div>
 
-          {/* Desktop Right Links + Button */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {rightLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
+                target={link.target}
+                rel={link.rel}
                 className="text-xs lg:text-sm font-semibold text-brand-forest/80 hover:text-brand-forest hover:underline underline-offset-4 decoration-2 decoration-brand-coral transition-all"
               >
                 {link.label}
@@ -119,6 +125,8 @@ const Navbar: React.FC = () => {
             <a
               key={link.label}
               href={link.href}
+              target={link.target}
+              rel={link.rel}
               onClick={() => setIsOpen(false)}
               className="text-base font-bold text-brand-forest py-2 border-b border-brand-sage/20 last:border-0 hover:text-brand-coral transition-colors"
             >
