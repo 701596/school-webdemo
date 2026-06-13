@@ -41,7 +41,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAdmission }) => {
   // Helper logo component to avoid duplication
   const Logo = () => (
     <a href="#" className="flex items-center gap-2.5 px-1 group">
-      <div className="w-10 h-10 rounded-full border border-brand-sage/60 flex items-center justify-center shadow-sm relative overflow-hidden group-hover:rotate-6 transition-transform duration-300 bg-white">
+      <div className="w-10 h-10 rounded-full border border-white/50 flex items-center justify-center shadow-sm relative overflow-hidden group-hover:rotate-6 transition-transform duration-300 bg-[#FFE8D6]/85 backdrop-blur-sm">
         <img 
           src="/images/logo.png" 
           alt="Nova Kids Playschool Logo" 
@@ -55,13 +55,13 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAdmission }) => {
   );
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 px-4 sm:px-6 pt-4 sm:pt-6 pointer-events-none">
-      <div className={`max-w-5xl mx-auto w-full rounded-full transition-all duration-300 pointer-events-auto ${
+    <nav className="sticky top-0 left-0 w-full z-50 pointer-events-none">
+      <div className={`w-full transition-all duration-300 pointer-events-auto border-b ${
         scrolled 
-          ? 'bg-white/95 backdrop-blur-md py-2 px-6 shadow-md border border-brand-sage/40' 
-          : 'bg-white/90 backdrop-blur-sm py-3.5 px-6 shadow-sm border border-brand-sage/20'
+          ? 'bg-[#FFE8D6]/95 backdrop-blur-lg py-2 shadow-md border-[#FFE8D6]/40' 
+          : 'bg-[#FFE8D6]/90 backdrop-blur-md py-3.5 shadow-sm border-[#FFE8D6]/20'
       }`}>
-        <div className="flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
           
           {/* Logo on the Left */}
           <Logo />
@@ -113,7 +113,7 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAdmission }) => {
       </div>
 
       {/* Mobile Drawer menu */}
-      <div className={`md:hidden absolute top-[calc(100%+8px)] left-4 right-4 bg-white/95 backdrop-blur-md border border-brand-sage/30 rounded-[24px] overflow-hidden transition-all duration-300 ease-in-out pointer-events-auto ${
+      <div className={`md:hidden absolute top-[calc(100%+8px)] left-4 right-4 bg-[#FFE8D6]/95 backdrop-blur-lg border border-[#FFE8D6]/40 rounded-[24px] overflow-hidden transition-all duration-300 ease-in-out pointer-events-auto ${
         isOpen ? 'opacity-100 translate-y-0 visible shadow-md' : 'opacity-0 -translate-y-4 invisible pointer-events-none'
       }`}>
         <div className="px-6 py-6 flex flex-col space-y-4 text-left">

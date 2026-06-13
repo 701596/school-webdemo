@@ -19,7 +19,7 @@ const AdmissionModal: React.FC<AdmissionModalProps> = ({ isOpen, onClose }) => {
       />
       
       {/* Modal Container */}
-      <div className="relative w-full max-w-lg bg-white rounded-[32px] overflow-hidden shadow-2xl z-10 max-h-[90vh] overflow-y-auto transform scale-100 transition-all duration-300">
+      <div className="relative w-full max-w-lg bg-[#FCF9F2] rounded-[32px] overflow-hidden shadow-2xl z-10 max-h-[90vh] overflow-y-auto transform scale-100 transition-all duration-300">
         {/* Close Button */}
         <button 
           onClick={onClose}

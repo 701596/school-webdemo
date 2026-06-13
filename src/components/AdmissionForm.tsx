@@ -41,7 +41,7 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({ onSuccess }) => {
   };
 
   return (
-    <div className="bg-white p-8 rounded-[32px] border-0 shadow-lg soft-card-shadow">
+    <div className="bg-[#FCF9F2] p-8 rounded-[32px] border border-brand-sage/40 shadow-lg soft-card-shadow">
       <div className="flex items-center gap-2 mb-6">
         <Sparkles className="w-5 h-5 text-brand-coral animate-pulse" />
         <h3 className="text-xl font-display font-bold text-brand-forest">
@@ -65,7 +65,7 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({ onSuccess }) => {
               required
               value={formData.parentName}
               onChange={(e) => setFormData({ ...formData, parentName: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl border border-brand-sage/40 bg-brand-sand/30 text-brand-forest text-sm font-semibold focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-coral/20 transition-all"
+              className="w-full px-4 py-3 rounded-xl border border-brand-sage/40 bg-brand-sand/30 text-brand-forest text-sm font-semibold focus:outline-none focus:bg-[#FFFDF9] focus:ring-2 focus:ring-brand-coral/20 transition-all"
               placeholder="Enter your name"
             />
           </div>
@@ -77,7 +77,7 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({ onSuccess }) => {
                 type="text"
                 value={formData.childName}
                 onChange={(e) => setFormData({ ...formData, childName: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl border border-brand-sage/40 bg-brand-sand/30 text-brand-forest text-sm font-semibold focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-coral/20 transition-all"
+                className="w-full px-4 py-3 rounded-xl border border-brand-sage/40 bg-brand-sand/30 text-brand-forest text-sm font-semibold focus:outline-none focus:bg-[#FFFDF9] focus:ring-2 focus:ring-brand-coral/20 transition-all"
                 placeholder="Name"
               />
             </div>
@@ -87,7 +87,7 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({ onSuccess }) => {
                 type="text"
                 value={formData.childAge}
                 onChange={(e) => setFormData({ ...formData, childAge: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl border border-brand-sage/40 bg-brand-sand/30 text-brand-forest text-sm font-semibold focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-coral/20 transition-all"
+                className="w-full px-4 py-3 rounded-xl border border-brand-sage/40 bg-brand-sand/30 text-brand-forest text-sm font-semibold focus:outline-none focus:bg-[#FFFDF9] focus:ring-2 focus:ring-brand-coral/20 transition-all"
                 placeholder="e.g. 3 Years"
               />
             </div>
@@ -100,7 +100,7 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({ onSuccess }) => {
               required
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl border border-brand-sage/40 bg-brand-sand/30 text-brand-forest text-sm font-semibold focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-coral/20 transition-all"
+              className="w-full px-4 py-3 rounded-xl border border-brand-sage/40 bg-brand-sand/30 text-brand-forest text-sm font-semibold focus:outline-none focus:bg-[#FFFDF9] focus:ring-2 focus:ring-brand-coral/20 transition-all"
               placeholder="Mobile number"
             />
           </div>
@@ -111,7 +111,7 @@ const AdmissionForm: React.FC<AdmissionFormProps> = ({ onSuccess }) => {
               rows={3}
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl border border-brand-sage/40 bg-brand-sand/30 text-brand-forest text-sm font-semibold focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-coral/20 transition-all resize-none"
+              className="w-full px-4 py-3 rounded-xl border border-brand-sage/40 bg-brand-sand/30 text-brand-forest text-sm font-semibold focus:outline-none focus:bg-[#FFFDF9] focus:ring-2 focus:ring-brand-coral/20 transition-all resize-none"
               placeholder="Any specific queries..."
             />
           </div>

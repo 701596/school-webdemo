@@ -4,24 +4,32 @@ import { ShieldAlert, Video, Heart, HelpCircle } from 'lucide-react';
 const Safety: React.FC = () => {
   const safetyFeatures = [
     {
-      icon: <Video className="w-5 h-5 text-brand-forest" />,
+      icon: <Video className="w-5 h-5 text-[#2E5A27]" />,
       title: "24/7 CCTV Monitoring",
-      description: "Continuous real-time surveillance across all play spaces, classrooms, and corridors."
+      description: "Continuous real-time surveillance across all play spaces, classrooms, and corridors.",
+      cardStyle: "bg-[#F3F7F2]/75 backdrop-blur-md border border-[#E3E9DC]",
+      iconBg: "bg-[#E3E9DC] text-[#2E5A27]"
     },
     {
-      icon: <ShieldAlert className="w-5 h-5 text-brand-forest" />,
+      icon: <ShieldAlert className="w-5 h-5 text-[#D06B6A]" />,
       title: "Child-Safe Interiors",
-      description: "Soft rounded furniture corners, wall cushioning, anti-slip flooring, and organic non-toxic toys."
+      description: "Soft rounded furniture corners, wall cushioning, anti-slip flooring, and organic non-toxic toys.",
+      cardStyle: "bg-[#FFF5F5]/75 backdrop-blur-md border border-[#F28482]/20",
+      iconBg: "bg-[#F28482]/15 text-[#D06B6A]"
     },
     {
-      icon: <Heart className="w-5 h-5 text-brand-forest" />,
+      icon: <Heart className="w-5 h-5 text-rose-600" />,
       title: "Trained First-Aid Staff",
-      description: "Every teacher and assistant is certified in pediatric first-aid, CPR, and emergency protocols."
+      description: "Every teacher and assistant is certified in pediatric first-aid, CPR, and emergency protocols.",
+      cardStyle: "bg-[#FFF0F2]/75 backdrop-blur-md border border-rose-200",
+      iconBg: "bg-rose-100 text-rose-600"
     },
     {
-      icon: <HelpCircle className="w-5 h-5 text-brand-forest" />,
+      icon: <HelpCircle className="w-5 h-5 text-[#8F661B]" />,
       title: "Access Control Gate",
-      description: "Gated entry point requiring ID check matching parent records for student pickups."
+      description: "Gated entry point requiring ID check matching parent records for student pickups.",
+      cardStyle: "bg-[#FDF9EE]/75 backdrop-blur-md border border-[#F7EFCB]",
+      iconBg: "bg-[#F7EFCB] text-[#8F661B]"
     }
   ];
 
@@ -48,7 +56,7 @@ const Safety: React.FC = () => {
           {/* Left Side: Safety Details */}
           <div className="lg:col-span-6 space-y-8">
             <div className="space-y-4 text-left">
-              <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white text-brand-forest border border-brand-sage shadow-sm">
+              <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-brand-bg text-brand-forest border border-brand-sage shadow-sm">
                 <span className="text-[10px] font-bold uppercase tracking-widest">Safety First</span>
               </div>
               <h2 className="text-3xl md:text-5xl font-display font-bold text-brand-forest tracking-tight leading-tight">
@@ -64,15 +72,15 @@ const Safety: React.FC = () => {
               {safetyFeatures.map((feat, index) => (
                 <div 
                   key={index}
-                  className="bg-white p-6 rounded-3xl border-0 shadow-lg hover:translate-y-[-2px] transition-transform duration-300 flex flex-col items-start space-y-3"
+                  className={`${feat.cardStyle} p-6 rounded-3xl shadow-lg hover:translate-y-[-4px] transition-all duration-300 flex flex-col items-start space-y-3`}
                 >
-                  <div className="w-10 h-10 rounded-xl bg-brand-sage/40 flex items-center justify-center text-brand-forest shadow-sm">
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center shadow-sm ${feat.iconBg}`}>
                     {feat.icon}
                   </div>
                   <h4 className="font-display font-bold text-base text-brand-forest">
                     {feat.title}
                   </h4>
-                  <p className="text-xs text-brand-forest/70 leading-normal font-semibold">
+                  <p className="text-xs text-brand-forest/80 leading-normal font-semibold">
                     {feat.description}
                   </p>
                 </div>
@@ -84,7 +92,7 @@ const Safety: React.FC = () => {
           <div className="lg:col-span-6 flex flex-col justify-center items-center">
             
             {/* ATTACH CAMPUS VIDEO ASSET: Insert 29-second overview video element here */}
-            <div className="relative w-full max-w-[340px] h-[490px] rounded-[36px] overflow-hidden shadow-xl bg-white p-2.5 border border-brand-sage/20">
+            <div className="relative w-full max-w-[340px] h-[490px] rounded-[36px] overflow-hidden shadow-xl bg-brand-bg p-2.5 border border-brand-sage/20">
               <div className="w-full h-full rounded-[26px] overflow-hidden bg-brand-forest relative">
                 <iframe
                   src="https://www.instagram.com/reel/DZUxpHLJCi_/embed"
@@ -120,8 +128,8 @@ const Safety: React.FC = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Polaroid Photo 1 */}
-            <div className="group relative bg-white p-4 border-0 rounded-[32px] shadow-lg -rotate-1 hover:rotate-0 transition-transform duration-300">
-              <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-brand-sand relative shadow-sm">
+            <div className="group relative bg-[#F8FAF6]/90 backdrop-blur-md p-4 border border-[#E3E9DC] rounded-[32px] shadow-md shadow-brand-forest/5 hover:shadow-xl hover:shadow-brand-sage/40 -rotate-1 hover:rotate-0 transition-all duration-300">
+              <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-brand-sand relative shadow-sm border-4 border-[#E3E9DC]/60">
                 <img 
                   src="/images/campus-lawn.png" 
                   alt="Outdoor Grass Playing Lawn" 
@@ -130,13 +138,13 @@ const Safety: React.FC = () => {
               </div>
               <div className="mt-4 text-left px-2">
                 <span className="block text-base font-display font-bold text-brand-forest">Outdoor Grass Play Lawn</span>
-                <span className="block text-xs text-brand-forest/60 mt-1.5 font-semibold">Spacious gated field with child-sized furniture</span>
+                <span className="block text-xs text-[#2E5A27]/80 mt-1.5 font-bold">Spacious gated field with child-sized furniture</span>
               </div>
             </div>
             
             {/* Polaroid Photo 2 */}
-            <div className="group relative bg-white p-4 border-0 rounded-[32px] shadow-lg rotate-1 hover:rotate-0 transition-transform duration-300">
-              <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-brand-sand relative shadow-sm">
+            <div className="group relative bg-[#FFF9F8]/90 backdrop-blur-md p-4 border border-[#F28482]/20 rounded-[32px] shadow-md shadow-brand-forest/5 hover:shadow-xl hover:shadow-brand-coral/25 rotate-1 hover:rotate-0 transition-all duration-300">
+              <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-brand-sand relative shadow-sm border-4 border-[#F28482]/30">
                 <img 
                   src="/images/campus-courtyard.png" 
                   alt="Courtyard Playground Equipment" 
@@ -145,7 +153,7 @@ const Safety: React.FC = () => {
               </div>
               <div className="mt-4 text-left px-2">
                 <span className="block text-base font-display font-bold text-brand-forest">Courtyard Play Facilities</span>
-                <span className="block text-xs text-brand-forest/60 mt-1.5 font-semibold">Safe swings, slides, and secure perimeter boundaries</span>
+                <span className="block text-xs text-[#D06B6A]/80 mt-1.5 font-bold">Safe swings, slides, and secure perimeter boundaries</span>
               </div>
             </div>
           </div>

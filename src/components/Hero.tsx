@@ -8,7 +8,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onOpenAdmission }) => {
   return (
-    <section id="hero" className="relative pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden grid-paper border-b border-brand-sage/30">
+    <section id="hero" className="relative pt-36 pb-28 md:pt-44 md:pb-36 overflow-hidden grid-paper bg-[#FFE8D6]">
       
       {/* Hand-drawn Vector Doodles in their exact positions */}
 
@@ -46,7 +46,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenAdmission }) => {
             <h1 className="text-5xl lg:text-[64px] font-black tracking-tight text-[#1E352F] leading-[1.08] max-w-2xl font-display">
               Where early curiosity <br />
               meets <span className="text-[#F28482]">safe, modern</span> <br />
-              foundaton.
+              foundation.
             </h1>
 
             {/* Supporting Paragraph - Restored to match image */}
@@ -61,7 +61,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenAdmission }) => {
                 className="inline-flex items-center justify-center gap-3 bg-[#1E352F] hover:bg-[#1E352F]/90 text-white font-bold text-sm px-7 py-4 rounded-full transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md shadow-[#1E352F]/10 group cursor-pointer animate-pulse-subtle"
               >
                 <span>Get Admission</span>
-                <span className="w-5 h-5 rounded-full bg-white text-[#1E352F] flex items-center justify-center transition-transform group-hover:translate-x-0.5">
+                <span className="w-5 h-5 rounded-full bg-brand-bg text-[#1E352F] flex items-center justify-center transition-transform group-hover:translate-x-0.5">
                   <ArrowRight className="w-3 h-3" />
                 </span>
               </button>
@@ -86,7 +86,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenAdmission }) => {
               <div className="absolute right-0 bottom-4 w-[360px] h-[300px] bg-[#F28482] rounded-[40%_60%_70%_30%_/_45%_40%_60%_55%] z-0" />
 
               {/* Layer 2: Left Circular Campus Lawn Image */}
-              <div className="absolute left-0 bottom-12 w-[220px] h-[220px] rounded-full overflow-hidden border-4 border-white shadow-lg z-20 bg-white">
+              <div className="absolute left-0 bottom-12 w-[220px] h-[220px] rounded-full overflow-hidden border-4 border-white/80 shadow-lg z-20 bg-white/70 backdrop-blur-sm">
                 <img 
                   src="/images/campus-lawn.png" 
                   alt="Outdoor Grass Playing Lawn" 
@@ -95,7 +95,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenAdmission }) => {
               </div>
 
               {/* Layer 3: Center Arched Active Learning Card */}
-              <div className="absolute left-[165px] top-6 w-[170px] aspect-[3/4] overflow-hidden rounded-t-[100px] rounded-b-[20px] bg-white shadow-xl border border-white/60 -rotate-3 transition-transform duration-500 hover:-rotate-1 group z-10">
+              <div className="absolute left-[165px] top-6 w-[170px] aspect-[3/4] overflow-hidden rounded-t-[100px] rounded-b-[20px] bg-white/70 backdrop-blur-md border border-white/40 -rotate-3 transition-transform duration-500 hover:-rotate-1 group z-10 shadow-xl">
                 <img 
                   src="/images/sensory-exploration.jpg" 
                   alt="Active classroom learning activity" 
@@ -107,7 +107,7 @@ const Hero: React.FC<HeroProps> = ({ onOpenAdmission }) => {
               </div>
 
               {/* Layer 4: Right Arched Sensory Exploration Card */}
-              <div className="absolute right-0 bottom-6 w-[175px] aspect-[3/4] overflow-hidden rounded-t-[100px] rounded-b-[20px] bg-white shadow-xl border border-white/60 rotate-3 transition-transform duration-500 hover:rotate-1 group z-30">
+              <div className="absolute right-0 bottom-6 w-[175px] aspect-[3/4] overflow-hidden rounded-t-[100px] rounded-b-[20px] bg-white/70 backdrop-blur-md border border-white/40 rotate-3 transition-transform duration-500 hover:rotate-1 group z-30 shadow-xl">
                 <img 
                   src="/images/classroom-math.png" 
                   alt="Sensory play exploration" 
@@ -152,6 +152,36 @@ const Hero: React.FC<HeroProps> = ({ onOpenAdmission }) => {
           </div>
 
         </div>
+      </div>
+
+      {/* Wave bottom divider with horizontal pink gradient */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none translate-y-[2px] pointer-events-none z-10">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none" className="relative block w-full h-24 md:h-36">
+          <defs>
+            <linearGradient id="hero-wave-front" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#FFF5F4" />
+              <stop offset="25%" stopColor="#FCDEDC" />
+              <stop offset="50%" stopColor="#F28482" />
+              <stop offset="75%" stopColor="#FCDEDC" />
+              <stop offset="100%" stopColor="#FFF5F4" />
+            </linearGradient>
+            <linearGradient id="hero-wave-back" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#F28482" stopOpacity="0.05" />
+              <stop offset="50%" stopColor="#F28482" stopOpacity="0.25" />
+              <stop offset="100%" stopColor="#F28482" stopOpacity="0.1" />
+            </linearGradient>
+          </defs>
+          {/* Back wave ribbon */}
+          <path 
+            d="M0,110 C360,240 720,20 1080,190 C1260,260 1320,150 1440,110 L1440,160 C1320,200 1200,310 1080,240 C720,70 360,290 0,160 Z" 
+            fill="url(#hero-wave-back)"
+          />
+          {/* Front wave ribbon */}
+          <path 
+            d="M0,160 C360,30 720,250 1080,110 C1200,30 1320,200 1440,140 L1440,200 C1320,260 1200,90 1080,170 C720,310 360,90 0,220 Z" 
+            fill="url(#hero-wave-front)" 
+          />
+        </svg>
       </div>
     </section>
   );

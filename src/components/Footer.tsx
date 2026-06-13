@@ -74,10 +74,10 @@ const Footer: React.FC = () => {
             {/* Large Click-to-Call Dialer Block with Sand background */}
             <a 
               href="tel:06005080014"
-              className="group flex flex-col md:flex-row items-center justify-between p-6 rounded-[24px] bg-brand-sand text-brand-forest hover:bg-brand-sand/90 transition-all border border-brand-sage/30 shadow-lg soft-hover-shadow hover:scale-[1.01]"
+              className="group flex flex-col md:flex-row items-center justify-between p-6 rounded-[24px] bg-white/50 backdrop-blur-md text-brand-forest hover:bg-white/60 transition-all border border-white/40 shadow-lg soft-hover-shadow hover:scale-[1.01]"
             >
               <div className="flex items-center gap-4 text-left">
-                <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-brand-forest border border-brand-sage/20 flex-shrink-0 shadow-sm">
+                <div className="w-12 h-12 rounded-xl bg-white/80 flex items-center justify-center text-brand-forest border border-white/50 flex-shrink-0 shadow-sm">
                   <Phone className="w-5 h-5 animate-pulse" />
                 </div>
                 <div>
@@ -95,10 +95,10 @@ const Footer: React.FC = () => {
               href="https://play.google.com/store/apps/details?id=com.axoneura.eduopus.parent&pcampaignid=web_share"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col md:flex-row items-center justify-between p-6 rounded-[24px] bg-brand-sage/30 text-brand-forest hover:bg-brand-sage/50 transition-all border border-brand-sage/40 shadow-lg soft-hover-shadow hover:scale-[1.01]"
+              className="group flex flex-col md:flex-row items-center justify-between p-6 rounded-[24px] bg-white/60 backdrop-blur-md text-brand-forest hover:bg-white/70 transition-all border border-white/50 shadow-lg soft-hover-shadow hover:scale-[1.01]"
             >
               <div className="flex items-center gap-4 text-left">
-                <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-brand-forest border border-brand-sage/20 flex-shrink-0 shadow-sm">
+                <div className="w-12 h-12 rounded-xl bg-white/80 flex items-center justify-center text-brand-forest border border-white/50 flex-shrink-0 shadow-sm">
                   <Smartphone className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 </div>
                 <div>
@@ -127,7 +127,7 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 pt-10 flex flex-col sm:flex-row items-center justify-between gap-6">
         {/* Logo Text */}
         <div className="text-left flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full border border-brand-sage/60 flex items-center justify-center shadow-sm overflow-hidden bg-white">
+          <div className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center shadow-sm overflow-hidden bg-white/80 backdrop-blur-sm">
             <img 
               src="/images/logo.png" 
               alt="Nova Kids Playschool Logo" 

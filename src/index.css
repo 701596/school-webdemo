@@ -3,11 +3,11 @@
 
 @theme {
   /* Premium Organic Palette Tokens */
-  --color-brand-bg: #FDFBF7;      /* Warm Off-White Page Background */
+  --color-brand-bg: #FFE8D6;      /* Warm Off-White Page Background */
   --color-brand-sage: #E3E9DC;    /* Soft Pastel Sage Green */
   --color-brand-forest: #1E352F;  /* Deep Forest Green Text & Headers */
   --color-brand-coral: #F28482;   /* Energetic Soft Coral Pink */
-  --color-brand-sand: #F7F3E9;    /* Sand Element Backgrounds */
+  --color-brand-sand: #EADEC9;    /* Sand Element Backgrounds */
 
   /* Typography Fonts */
   --font-sans: 'Inter', system-ui, sans-serif;
@@ -29,11 +29,11 @@
 }
 
 :root {
-  --brand-bg: #FDFBF7;
+  --brand-bg: #FFE8D6;
   --brand-sage: #E3E9DC;
   --brand-forest: #1E352F;
   --brand-coral: #F28482;
-  --brand-sand: #F7F3E9;
+  --brand-sand: #EADEC9;
   
   --font-main: 'Inter', sans-serif;
   --font-headers: 'Chillax', sans-serif;
@@ -45,8 +45,7 @@
   }
   body {
     font-family: var(--font-main);
-    background: linear-gradient(135deg, #FDFBF7 0%, #FFF0EE 50%, #FDFBF7 100%);
-    background-attachment: fixed;
+    background-color: #FFE8D6;
     color: var(--brand-forest);
     line-height: 1.65;
     overflow-x: hidden;
@@ -64,10 +63,10 @@
 
 /* Soft Grid Paper Background (very faint organic paper feel) */
 .grid-paper {
-  background-size: 32px 32px;
+  background-size: 36px 36px;
   background-image: 
-    linear-gradient(to right, rgba(30, 53, 47, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(30, 53, 47, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.45) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.45) 1.5px, transparent 1.5px);
 }
 
 /* Vault Arch Mask for Images (playful curved arches from mockup) */
@@ -102,9 +101,23 @@
   transform: translateY(0px);
 }
 
+/* Custom Program Card Style */
+.program-card {
+  background: #ffffff;
+  border: 2px solid rgba(0,0,0,0.08);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.program-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+}
+
 /* Sticky Glassmorphism Header */
 .glass-nav {
-  background-color: rgba(253, 251, 247, 0.85);
+  background-color: rgba(255, 232, 214, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(30, 53, 47, 0.04);
