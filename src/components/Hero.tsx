@@ -1,7 +1,11 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  onOpenAdmission: () => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ onOpenAdmission }) => {
   return (
     <section id="hero" className="relative pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden grid-paper border-b border-brand-sage/30">
       
@@ -51,15 +55,15 @@ const Hero: React.FC = () => {
 
             {/* Soft CTAs */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-5 w-full sm:w-auto">
-              <a
-                href="#admissions"
-                className="inline-flex items-center justify-center gap-3 bg-[#1E352F] hover:bg-[#1E352F]/90 text-white font-bold text-sm px-7 py-4 rounded-full transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md shadow-[#1E352F]/10 group"
+              <button
+                onClick={onOpenAdmission}
+                className="inline-flex items-center justify-center gap-3 bg-[#1E352F] hover:bg-[#1E352F]/90 text-white font-bold text-sm px-7 py-4 rounded-full transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-md shadow-[#1E352F]/10 group cursor-pointer animate-pulse-subtle"
               >
                 <span>Get Admission</span>
                 <span className="w-5 h-5 rounded-full bg-white text-[#1E352F] flex items-center justify-center transition-transform group-hover:translate-x-0.5">
                   <ArrowRight className="w-3 h-3" />
                 </span>
-              </a>
+              </button>
               <a
                 href="#programs"
                 className="inline-flex items-center justify-center gap-2 bg-transparent hover:text-brand-coral text-[#1E352F] font-bold text-sm px-6 py-4 transition-colors"

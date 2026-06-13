@@ -1,27 +1,8 @@
-import React, { useState } from 'react';
-import { MapPin, Phone, Clock, Send, Sparkles, Smartphone } from 'lucide-react';
+import React from 'react';
+import { MapPin, Phone, Clock, Smartphone } from 'lucide-react';
+import AdmissionForm from './AdmissionForm';
 
 const Footer: React.FC = () => {
-  const [formData, setFormData] = useState({
-    parentName: '',
-    childName: '',
-    childAge: '',
-    phone: '',
-    message: ''
-  });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (formData.parentName && formData.phone) {
-      setSubmitted(true);
-      setTimeout(() => {
-        setSubmitted(false);
-        setFormData({ parentName: '', childName: '', childAge: '', phone: '', message: '' });
-      }, 5000);
-    }
-  };
-
   return (
     <footer id="contact" className="pt-24 pb-12 relative border-t border-brand-sage/30">
       {/* Contact & Admissions Form Grid */}
@@ -29,93 +10,8 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Column 1: Admissions Interest Form (lg:col-span-5) */}
-          <div id="admissions" className="lg:col-span-5 bg-white p-8 rounded-[32px] border-0 shadow-lg soft-card-shadow">
-            <div className="flex items-center gap-2 mb-6">
-              <Sparkles className="w-5 h-5 text-brand-coral animate-pulse" />
-              <h3 className="text-xl font-display font-bold text-brand-forest">
-                Admissions Enquiry
-              </h3>
-            </div>
-
-            {submitted ? (
-              <div className="bg-brand-sage/20 border border-brand-sage/40 p-6 rounded-2xl text-center space-y-3">
-                <span className="block text-xl font-bold text-brand-forest font-display">Enquiry Submitted!</span>
-                <p className="text-sm text-brand-forest/80">
-                  Thank you for registering your interest. Our Sopore campus team will contact you within 24 hours.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4 text-left">
-                <div>
-                  <label className="block text-[10px] font-bold text-brand-forest/50 uppercase tracking-wider mb-1.5">Parent's Full Name *</label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.parentName}
-                    onChange={(e) => setFormData({ ...formData, parentName: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-brand-sage/40 bg-brand-sand/30 text-brand-forest text-sm font-semibold focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-coral/20 transition-all"
-                    placeholder="Enter your name"
-                  />
-                </div>
-                
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-[10px] font-bold text-brand-forest/50 uppercase tracking-wider mb-1.5">Child's Name</label>
-                    <input
-                      type="text"
-                      value={formData.childName}
-                      onChange={(e) => setFormData({ ...formData, childName: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-brand-sage/40 bg-brand-sand/30 text-brand-forest text-sm font-semibold focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-coral/20 transition-all"
-                      placeholder="Name"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[10px] font-bold text-brand-forest/50 uppercase tracking-wider mb-1.5">Child's Age</label>
-                    <select
-                      value={formData.childAge}
-                      onChange={(e) => setFormData({ ...formData, childAge: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-brand-sage/40 bg-brand-sand/30 text-brand-forest text-sm font-semibold focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-coral/20 transition-all"
-                    >
-                      <option value="">Select Age</option>
-                      <option value="2-3">2 - 3 Years</option>
-                      <option value="3-4">3 - 4 Years</option>
-                      <option value="4-5">4 - 5 Years</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-[10px] font-bold text-brand-forest/50 uppercase tracking-wider mb-1.5">Phone Number *</label>
-                  <input
-                    type="tel"
-                    required
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-brand-sage/40 bg-brand-sand/30 text-brand-forest text-sm font-semibold focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-coral/20 transition-all"
-                    placeholder="Mobile number"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-[10px] font-bold text-brand-forest/50 uppercase tracking-wider mb-1.5">Message / Notes</label>
-                  <textarea
-                    rows={3}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-brand-sage/40 bg-brand-sand/30 text-brand-forest text-sm font-semibold focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-coral/20 transition-all resize-none"
-                    placeholder="Any specific queries..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-brand-forest hover:bg-brand-forest/90 text-white font-bold py-3.5 rounded-xl transition-all duration-300 shadow-md shadow-brand-forest/10 hover:scale-[1.01]"
-                >
-                  <Send className="w-4 h-4" />
-                  <span>Submit Inquiry</span>
-                </button>
-              </form>
-            )}
+          <div id="admissions" className="lg:col-span-5">
+            <AdmissionForm />
           </div>
 
           {/* Column 2: Location, Address & Interactive Map (lg:col-span-7) */}

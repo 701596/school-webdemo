@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  onOpenAdmission: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onOpenAdmission }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -87,6 +91,12 @@ const Navbar: React.FC = () => {
                 href={link.href}
                 target={link.target}
                 rel={link.rel}
+                onClick={(e) => {
+                  if (link.href === '#admissions') {
+                    e.preventDefault();
+                    onOpenAdmission();
+                  }
+                }}
                 className="text-xs lg:text-sm font-semibold text-brand-forest/80 hover:text-brand-forest hover:underline underline-offset-4 decoration-2 decoration-brand-coral transition-all"
               >
                 {link.label}
@@ -127,7 +137,13 @@ const Navbar: React.FC = () => {
               href={link.href}
               target={link.target}
               rel={link.rel}
-              onClick={() => setIsOpen(false)}
+              onClick={(e) => {
+                setIsOpen(false);
+                if (link.href === '#admissions') {
+                  e.preventDefault();
+                  onOpenAdmission();
+                }
+              }}
               className="text-base font-bold text-brand-forest py-2 border-b border-brand-sage/20 last:border-0 hover:text-brand-coral transition-colors"
             >
               {link.label}
