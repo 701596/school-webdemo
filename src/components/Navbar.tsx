@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
+import { smoothScrollTo } from '../utils/scroll';
 
 interface NavbarProps {
   onOpenAdmission: () => void;
@@ -62,30 +63,12 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAdmission }) => {
       }`}>
         <div className="flex items-center justify-between">
           
-          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-            {leftLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-xs lg:text-sm font-semibold text-brand-forest/80 hover:text-brand-forest hover:underline underline-offset-4 decoration-2 decoration-brand-coral transition-all"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
+          {/* Logo on the Left */}
+          <Logo />
 
-          {/* Center Logo - Desktop */}
-          <div className="hidden md:block">
-            <Logo />
-          </div>
-
-          {/* Left Logo - Mobile */}
-          <div className="md:hidden">
-            <Logo />
-          </div>
-
-          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-            {rightLinks.map((link) => (
+          {/* Desktop Right Links + Button */}
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
+            {[...leftLinks, ...rightLinks].map((link) => (
               <a
                 key={link.label}
                 href={link.href}
@@ -95,6 +78,9 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAdmission }) => {
                   if (link.href === '#admissions') {
                     e.preventDefault();
                     onOpenAdmission();
+                  } else if (link.href.startsWith('#')) {
+                    e.preventDefault();
+                    smoothScrollTo(link.href);
                   }
                 }}
                 className="text-xs lg:text-sm font-semibold text-brand-forest/80 hover:text-brand-forest hover:underline underline-offset-4 decoration-2 decoration-brand-coral transition-all"
@@ -142,6 +128,11 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenAdmission }) => {
                 if (link.href === '#admissions') {
                   e.preventDefault();
                   onOpenAdmission();
+                } else if (link.href.startsWith('#')) {
+                  e.preventDefault();
+                  setTimeout(() => {
+                    smoothScrollTo(link.href);
+                  }, 250);
                 }
               }}
               className="text-base font-bold text-brand-forest py-2 border-b border-brand-sage/20 last:border-0 hover:text-brand-coral transition-colors"

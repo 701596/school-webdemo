@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { smoothScrollTo } from '../utils/scroll';
 
 interface HeroProps {
   onOpenAdmission: () => void;
@@ -66,6 +67,10 @@ const Hero: React.FC<HeroProps> = ({ onOpenAdmission }) => {
               </button>
               <a
                 href="#programs"
+                onClick={(e) => {
+                  e.preventDefault();
+                  smoothScrollTo('#programs');
+                }}
                 className="inline-flex items-center justify-center gap-2 bg-transparent hover:text-brand-coral text-[#1E352F] font-bold text-sm px-6 py-4 transition-colors"
               >
                 <span>Explore Programs</span>

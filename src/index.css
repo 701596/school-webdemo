@@ -124,3 +124,16 @@
   transform-origin: bottom center;
 }
 
+/* Playful periodic wiggle for high-engagement widgets (e.g. WhatsApp button) */
+@keyframes wiggle-periodic {
+  0%, 90%, 100% { transform: scale(1) rotate(0deg); }
+  92% { transform: scale(1.08) rotate(-8deg); }
+  94% { transform: scale(1.08) rotate(8deg); }
+  96% { transform: scale(1.08) rotate(-6deg); }
+  98% { transform: scale(1.08) rotate(4deg); }
+}
+
+.animate-wiggle-periodic {
+  animation: wiggle-periodic 8s ease-in-out infinite;
+}
+
