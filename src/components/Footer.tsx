@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Clock, Send, Sparkles } from 'lucide-react';
+import { MapPin, Phone, Clock, Send, Sparkles, Smartphone } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -191,6 +191,29 @@ const Footer: React.FC = () => {
               </div>
               <div className="mt-4 md:mt-0 px-6 py-3 bg-brand-forest text-white rounded-full font-bold text-xs tracking-wider uppercase hover:bg-brand-forest/90 transition-colors border border-white/10 shadow-sm">
                 Call Campus Now
+              </div>
+            </a>
+
+            {/* Parent Portal App Download Block with Sage background */}
+            <a 
+              href="https://play.google.com/store/apps/details?id=com.axoneura.eduopus.parent&pcampaignid=web_share"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col md:flex-row items-center justify-between p-6 rounded-[24px] bg-brand-sage/30 text-brand-forest hover:bg-brand-sage/50 transition-all border border-brand-sage/40 shadow-lg soft-hover-shadow hover:scale-[1.01]"
+            >
+              <div className="flex items-center gap-4 text-left">
+                <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-brand-forest border border-brand-sage/20 flex-shrink-0 shadow-sm">
+                  <Smartphone className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                </div>
+                <div>
+                  <span className="block text-[9px] font-bold text-brand-forest/50 uppercase tracking-widest leading-none mb-1">EduOpus Portal</span>
+                  <span className="block text-xl font-display font-bold tracking-tight">Parent Portal App</span>
+                  <p className="text-xs text-brand-forest/80 mt-0.5 max-w-sm">Track your child's attendance, activities, and daily announcements on Google Play.</p>
+                </div>
+              </div>
+              <div className="mt-4 md:mt-0 px-6 py-3 bg-brand-forest text-white rounded-full font-bold text-xs tracking-wider uppercase hover:bg-brand-forest/90 transition-colors border border-white/10 shadow-sm flex items-center gap-1.5">
+                <span>Download App</span>
+                <span className="text-[10px]">→</span>
               </div>
             </a>
 
