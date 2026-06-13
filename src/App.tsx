@@ -1,45 +1,32 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Navbar } from './components/Navbar';
-import { Footer } from './components/Footer';
-import { WhatsAppButton } from './components/WhatsAppButton';
-import { ScrollToTop } from './components/ScrollToTop';
-
-// Page imports (to be created next)
-import { Home } from './pages/Home';
-import { About } from './pages/About';
-import { Academics } from './pages/Academics';
-import { Admissions } from './pages/Admissions';
-import { Gallery } from './pages/Gallery';
-import { Contact } from './pages/Contact';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Metrics from './components/Metrics';
+import Programs from './components/Programs';
+import Safety from './components/Safety';
+import Footer from './components/Footer';
+import WhatsAppButton from './components/WhatsAppButton';
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="flex flex-col min-h-screen bg-gray-50 text-slate-800 font-sans selection:bg-[#f6c90e]/30 selection:text-[#1a3a6e]">
-        {/* Navigation Bar */}
-        <Navbar />
+    <div className="min-h-screen text-brand-forest font-sans antialiased selection:bg-brand-coral/20 selection:text-brand-forest">
+      {/* Navigation Bar */}
+      <Navbar />
 
-        {/* Main Content Area */}
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/academics" element={<Academics />} />
-            <Route path="/admissions" element={<Admissions />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
+      {/* Main Content Area */}
+      <main>
+        <Hero />
+        <Metrics />
+        <Programs />
+        <Safety />
+      </main>
 
-        {/* Footer */}
-        <Footer />
+      {/* Footer & Contact info */}
+      <Footer />
 
-        {/* Floating WhatsApp CTA */}
-        <WhatsAppButton />
-      </div>
-    </Router>
+      {/* Floating CTA Button */}
+      <WhatsAppButton />
+    </div>
   );
 };
 

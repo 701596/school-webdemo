@@ -1,31 +1,42 @@
+@import url('https://api.fontshare.com/v2/css?f[]=chillax@400,500,600,700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-primary-teal: #004d61;
-  --color-secondary-mustard: #f0ad00;
-  --color-accent-dark: #264653;
-  --color-bg-light: #F8FAFC;
+  /* Premium Organic Palette Tokens */
+  --color-brand-bg: #FDFBF7;      /* Warm Off-White Page Background */
+  --color-brand-sage: #E3E9DC;    /* Soft Pastel Sage Green */
+  --color-brand-forest: #1E352F;  /* Deep Forest Green Text & Headers */
+  --color-brand-coral: #F28482;   /* Energetic Soft Coral Pink */
+  --color-brand-sand: #F7F3E9;    /* Sand Element Backgrounds */
+
+  /* Typography Fonts */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Chillax', 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  /* Custom animations */
+  --animate-pulse-subtle: pulse-subtle 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   
-  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-serif: 'Plus Jakarta Sans', system-ui, sans-serif;
-  
-  --shadow-custom: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+  @keyframes pulse-subtle {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.95;
+      transform: scale(1.01);
+    }
+  }
 }
 
 :root {
-  --primary-teal: #004d61;
-  --secondary-mustard: #f0ad00;
-  --accent-dark: #264653;
-  --bg-light: #F8FAFC;
-  --white: #ffffff;
-  --radius: 24px;
-  --shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
-  --nav-height: 90px;
-  --font-main: 'Plus Jakarta Sans', sans-serif;
+  --brand-bg: #FDFBF7;
+  --brand-sage: #E3E9DC;
+  --brand-forest: #1E352F;
+  --brand-coral: #F28482;
+  --brand-sand: #F7F3E9;
   
-  font-family: var(--font-main);
-  background-color: var(--bg-light);
-  color: var(--accent-dark);
+  --font-main: 'Inter', sans-serif;
+  --font-headers: 'Chillax', sans-serif;
 }
 
 @layer base {
@@ -34,156 +45,82 @@
   }
   body {
     font-family: var(--font-main);
-    background-color: var(--bg-light);
-    color: var(--accent-dark);
-    line-height: 1.6;
+    background: linear-gradient(135deg, #FDFBF7 0%, #FFF0EE 50%, #FDFBF7 100%);
+    background-attachment: fixed;
+    color: var(--brand-forest);
+    line-height: 1.65;
     overflow-x: hidden;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    line-height: 1.2;
-    color: var(--primary-teal);
-  }
-  p {
-    color: #475569;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
+    font-family: var(--font-headers);
+    color: var(--brand-forest);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
   }
 }
 
-/* --- Redesigned UI Utilities --- */
+/* Custom UI Utilities */
 
-/* Hero Waves and Slide Overlays */
-.hero-wave path {
-  fill: var(--bg-light);
-}
-
-/* Hover Scaling Utility */
-.hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.hover-lift:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.07);
+/* Soft Grid Paper Background (very faint organic paper feel) */
+.grid-paper {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(30, 53, 47, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 53, 47, 0.02) 1px, transparent 1px);
 }
 
-/* Timeline Custom Styles */
-.timeline-wrap {
-  position: relative;
-  max-width: 800px;
-  margin: 40px auto 0;
-  padding: 20px 0;
-}
-.timeline-line {
-  position: absolute;
-  left: 31px;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: #e2e8f0;
-}
-.timeline-fill {
-  position: absolute;
-  left: 31px;
-  top: 0;
-  width: 4px;
-  background: var(--secondary-mustard);
-  transition: height 0.5s ease;
+/* Vault Arch Mask for Images (playful curved arches from mockup) */
+.vault-arch {
+  border-radius: 140px 140px 0 0;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #e2e8f0;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--primary-teal);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--secondary-mustard);
+/* Organic Asymmetrical Blobs for Hero Background Accent Graphics */
+.organic-blob-accent-1 {
+  border-radius: 40% 60% 70% 30% / 40% 40% 60% 60%;
 }
 
-/* Navigation Overlays */
-.mobile-menu {
-  position: fixed;
-  top: var(--nav-height);
-  left: 0;
-  width: 100%;
-  height: calc(100vh - var(--nav-height));
-  background: white;
-  transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-  z-index: 900;
-  overflow: hidden;
+.organic-blob-accent-2 {
+  border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%;
 }
 
-/* Float Wrap Cards */
-.float-wrap {
-  margin-top: -60px;
-  position: relative;
-  z-index: 10;
+/* Soft Premium Card Shadows (no harsh outlines) */
+.soft-card-shadow {
+  box-shadow: 0 20px 40px -15px rgba(30, 53, 47, 0.05), 0 4px 12px -4px rgba(30, 53, 47, 0.02);
 }
 
-/* Safe Survelliance Box Background */
-.safety-wrapper {
-  background: var(--primary-teal);
-  border-radius: var(--radius);
-  padding: 60px 40px;
-  position: relative;
-  overflow: hidden;
+.soft-hover-shadow {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.safety-bg-icon {
-  position: absolute;
-  right: -30px;
-  bottom: -30px;
-  font-size: 15rem;
-  color: rgba(255, 255, 255, 0.03);
-  pointer-events: none;
+.soft-hover-shadow:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px -15px rgba(30, 53, 47, 0.08);
 }
 
-/* Image Collage Grids */
-.collage-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+.soft-hover-shadow:active {
+  transform: translateY(0px);
 }
 
-.collage-grid .c-wide {
-  grid-column: span 2;
+/* Sticky Glassmorphism Header */
+.glass-nav {
+  background-color: rgba(253, 251, 247, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(30, 53, 47, 0.04);
 }
 
-.collage-grid .c-tall {
-  grid-row: span 2;
+/* Playful hand-waving animation for the Hero doodle */
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(-12deg); }
+  40% { transform: rotate(14deg); }
+  60% { transform: rotate(-8deg); }
+  80% { transform: rotate(10deg); }
 }
 
-.collage-grid .c-big {
-  grid-column: span 2;
-  grid-row: span 2;
+.animate-wave {
+  animation: wave 2.2s ease-in-out infinite;
+  transform-origin: bottom center;
 }
 
-@media (max-width: 768px) {
-  .collage-grid {
-    grid-template-columns: 1fr;
-  }
-  .collage-grid .c-wide,
-  .collage-grid .c-tall,
-  .collage-grid .c-big {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-}
-
-/* Reveal Scroll Triggered Animations */
-.reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal-on-scroll.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
